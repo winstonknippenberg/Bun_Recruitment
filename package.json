@@ -1,12 +1,15 @@
 {
-    "name": "bun-recruitment",
-    "private": true,
-    "workspaces": [
-        "packages/*"
-    ],
-    "version": "0.0.1",
-    "contributors":[
-        "Ella Tal <ella.tal08@gmail.com>",
-        "Ben Rabinovich <imbenrabi@gmail.com>"
-    ] 
+  "name": "bun-recruitment",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start:dev-server": "cd packages/server && bun run dev"
+  },
+  "version": "0.0.1",
+  "contributors": [
+    "Ella Tal <ella.tal08@gmail.com>",
+    "Ben Rabinovich <imbenrabi@gmail.com>"
+  ]
 }
