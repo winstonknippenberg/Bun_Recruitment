@@ -4,6 +4,9 @@
     "workspaces": [
         "packages/*"
     ],
+    "scripts": {
+        "start:server": "cd packages/server && bun server.ts"
+    },
     "version": "0.0.1",
     "contributors":[
         "Ella Tal <ella.tal08@gmail.com>",
