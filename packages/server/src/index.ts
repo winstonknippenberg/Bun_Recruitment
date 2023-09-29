@@ -1,4 +1,5 @@
 import { Elysia, t } from "elysia";
+import { cors } from '@elysiajs/cors'
 
 const VolounteerSchema = t.Object({
   name: t.String(),
@@ -22,6 +23,7 @@ const getVolounteers = async (): Promise<Volounteer[] | undefined> => {
 }
 
 const app = new Elysia()
+  .use(cors())
   .get("/", () => "I am healthy!")
   .get("/volounteers", async () => {
     const volounteers = await getVolounteers()
@@ -36,7 +38,7 @@ const app = new Elysia()
       body: VolounteerSchema
     }
   )
-  .listen(3000);
+  .listen(8080);
 
 console.log(
   `🦊 Elysia server is running at ${app.server?.hostname}:${app.server?.port}`
