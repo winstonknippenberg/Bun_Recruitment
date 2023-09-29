@@ -5,7 +5,7 @@
         "packages/*"
     ],
     "scripts": {
-        "start:server": "cd packages/server && bun server.ts"
+        "start:server": "cd packages/server && bun --hot run server.ts"
     },
     "version": "0.0.1",
     "contributors":[
