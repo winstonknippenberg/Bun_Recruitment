@@ -5,7 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "start:dev-server": "cd packages/server && bun run dev"
+    "run:server": "cd packages/server && bun run dev",
+    "run:client": "cd packages/client && bun run dev"
   },
   "version": "0.0.1",
   "contributors": [
