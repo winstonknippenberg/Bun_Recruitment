@@ -1,37 +1,20 @@
-import { Elysia, t } from "elysia";
+import { Elysia } from "elysia";
 import { cors } from '@elysiajs/cors'
-
-const VolounteerSchema = t.Object({
-  name: t.String(),
-  city: t.String()
-})
-
-type Volounteer = {
-  name: string
-  city: string
-}
-
-const updateVolounteers = async (body: Volounteer) => {
-  //TODO: update volounteers
-}
-const getVolounteers = async (): Promise<Volounteer[] | undefined> => {
-  const res = await fetch('https://6516cfd409e3260018ca5780.mockapi.io/api/v1/volounteers')
-  if (res.ok) {
-    const volounteers = await res.json() as Volounteer[]
-    return volounteers
-  }
-}
+import { API_ROUTES, DB_ROUTES } from "./consts";
+import { VolounteerSchema } from "./schemas";
+import { getVolounteers, updateVolounteers } from "./queries";
 
 const app = new Elysia()
   .use(cors())
-  .get("/", () => "I am healthy!")
-  .get("/volounteers", async () => {
+  .get(API_ROUTES.INDEX, () => "I am healthy!")
+  .get(API_ROUTES.VOLOUNTEERS, async () => {
     const volounteers = await getVolounteers()
     return volounteers
   })
   .post(
-    "/volounteers",
+    API_ROUTES.VOLOUNTEERS,
     async ({ body }) => {
+      console.log(body)
       await updateVolounteers(body)
     },
     {
